@@ -11,6 +11,9 @@ export class BasePage {
     driver: WebDriver;
     url: string = 'https://www.target.com'
 
+    pageTitle: By = By.xpath("//h1[@data-test='page-title']")
+    closeBtn: By = By.xpath("//button[@aria-label='close']")
+    searchbar: By = By.id("search")
 
     constructor(options?: Options) {
         if(options && options.driver) this.driver = options.driver
@@ -33,6 +36,12 @@ export class BasePage {
  async click(elementBy: By): Promise<void> {
         return(await this.getElement(elementBy)).click()
     }  
+
+    async setInput(elementBy: By, keys: any): Promise<void> {
+        let input = await this.getElement(elementBy)
+            await input.clear()
+            return input.sendKeys(keys);
+        }
 
   async sendKeys(elementBy: By, keys) {
         await this.driver.wait(until.elementLocated(elementBy))
