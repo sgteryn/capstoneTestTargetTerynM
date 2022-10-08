@@ -24,9 +24,19 @@ export class Target extends BasePage {
     addToCartBtn: By = By.xpath("//button[text()='Add to cart']")
 
     continueShoppingBtn: By = By.xpath("//button[text()='Continue shopping']")
-    
+    viewCartAndCheckoutBtn: By = By.xpath("//a[text()='View cart & check out']")
 
-  
+    cartItem: By = By.xpath("//div[@aria-label='cart item ready to fulfill']")
+
+    dealsDropDown: By = By.xpath("//*[@aria-label='Deals']")
+
+    categoriesDropDown: By = By.xpath("//*[@aria-label='Categories']")
+    
+    BlackOwnedDropDownSelection: By = By.xpath("//span[text()='Black-owned or founded brands at Target']")
+    BlackOwnedPage: By = By.xpath("//img[@alt='Black Beyond Measure logo']")
+
+
+
     constructor() {
         super({url: 'https://www.target.com'})
 }

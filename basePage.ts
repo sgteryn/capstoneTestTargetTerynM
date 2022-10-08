@@ -14,7 +14,7 @@ export class BasePage {
     pageTitle: By = By.xpath("//h1[@data-test='page-title']")
     closeBtn: By = By.xpath("//button[@aria-label='close']")
     searchbar: By = By.id("search")
-
+    enterSearch: By = By.xpath("//button[@aria-label='go']")
     constructor(options?: Options) {
         if(options && options.driver) this.driver = options.driver
         else
